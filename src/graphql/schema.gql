@@ -1,0 +1,70 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CruiseUser {
+  """System Generated ID"""
+  id: Int!
+
+  """The users email address"""
+  email: String!
+
+  """Username chosen by user"""
+  username: String!
+
+  """Password selected by the user."""
+  password: String!
+
+  """Date the user was created."""
+  create_date: Timestamp!
+}
+
+"""
+The javascript `Date` as integer. Type represents date and time as number of milliseconds from start of UNIX epoch.
+"""
+scalar Timestamp
+
+type Query {
+  getUsers: [CruiseUser!]!
+  getUserById(id: Int!): CruiseUser!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): CruiseUser!
+  updateUser(updateUserInput: UpdateUserInput!): CruiseUser!
+}
+
+input CreateUserInput {
+  """The users email address."""
+  email: String!
+
+  """Username chosen by the user."""
+  username: String!
+
+  """Password selected by the user."""
+  password: String!
+
+  """Date the user was created."""
+  create_date: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input UpdateUserInput {
+  id: Int!
+
+  """The users email address."""
+  email: String!
+
+  """Username chosen by the user."""
+  username: String!
+
+  """Password selected by the user."""
+  password: String!
+
+  """Date the user was created."""
+  create_date: DateTime!
+}
